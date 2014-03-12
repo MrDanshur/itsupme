@@ -39,13 +39,6 @@
 				<div id="content">
 					<div class="box">
 						<?php include 'application/views/'.$content_view; ?>
-						<!--
-						<h2>Welcome to Accumen</h2>
-						<img class="alignleft" src="images/pic01.jpg" width="200" height="180" alt="" />
-						<p>
-							This is <strong>Accumen</strong>, a free, fully standards-compliant CSS template by <a href="http://www.freecsstemplates.org/">Free CSS Templates</a>. The images used in this template are from <a href="http://fotogrph.com/">Fotogrph</a>. This free template is released under a <a href="http://creativecommons.org/licenses/by/3.0/">Creative Commons Attributions 3.0</a> license, so you are pretty much free to do whatever you want with it (even use it commercially) provided you keep the footer credits intact. Aside from that, have fun with it :)
-						</p>
-						-->
 					</div>
 					<br class="clearfix" />
 				</div>
@@ -53,43 +46,24 @@
 			</div>
 			<div id="page-bottom">
 				<div id="page-bottom-sidebar">
-					<h3>Наши контакты</h3>
+					<h3><?php echo MY_CONTACTS ?></h3>
 					<ul class="list">
-						<li class="first">icq: 199199538</li>
-						<li>skypeid: vitalyswipe</li>
-						<li class="last">email: vitalyswipe@gmail.com</li>
+						<li>Aleksandr Krasov</li>
+						<li>skype: Danshur</li>
+						<li class="last">e-mail: danshur@yandex.ru</li>
 					</ul>
 				</div>
 				<div id="page-bottom-content">
-					<h3>О Компании</h3>
+					<h3><?php echo ABOUT_ME ?></h3>
 					<p>
-Вот дом.
-Который построил Джек.
-
-А это пшеница.
-Которая в тёмном чулане хранится
-В доме,
-Который построил Джек.
-
-А это весёлая птица-синица,
-Которая ловко ворует пшеницу,
-Которая в тёмном чулане хранится
-В доме,
-Который построил Джек.
-
-Вот кот,
-Который пугает и ловит синицу,
-Которая ловко ворует пшеницу,
-Которая в тёмном чулане хранится
-В доме,
-Который построил Джек.
+I want to be an excellent specialist in WEB development. <br/>I am perfectionist
 					</p>
 				</div>
 				<br class="clearfix" />
 			</div>
 		</div>
 		<div id="footer">
-			<a href="/">ГИИ МЧС РБ</a> &copy; <?php echo date('Y');?></a>
+			<a href="/"><?php echo COMPANY ?></a> &copy; <?php echo date('Y');?></a>
 		</div>
 	</body>
 </html>
