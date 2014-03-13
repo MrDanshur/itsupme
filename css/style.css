@@ -302,3 +302,61 @@ a {
 .ui-selectmenu.ui-dialog .ui-header {
     border-bottom-width: 1px;
 }
+
+/* Horizontal menu */
+#nav{
+	margin:0;
+	list-style:none;
+	font:12px/28px Verdana, Geneva, sans-serif;
+	background-color:#444;
+	border:1px solid black;
+	padding-left:0px;
+	height:28px;}
+
+#nav li {
+	float:left;
+}
+	
+#nav a{
+	width:120px;
+	color:#fff;
+	display:block;
+	text-align:center;
+	text-decoration:none;
+	border-right:1px solid black;
+}
+
+#nav a:hover{
+	text-decoration:none;
+	background-color:#ccc;
+	color:#000;
+	}	
+
+/* Pagination style */
+div.wrap {padding: 6px 0px 6px 16px; font-family: Arial, sans-serif; font-size: 14px; clear: both;}
+	div.wrap a, div.wrap span {margin: 0 1px; padding: 2px 5px; line-height: 26px; text-decoration: none;}
+	div.wrap a {background: none; color: #025A9C !important; text-decoration: underline; font-size: 14px; font-weight: bold;}
+	div.wrap span {background: #E8E9EC; color: #000;}
+	div.wrap span.ways {background: none; font-size: 15px; color: #999;}
+	div.wrap span.ways span {background: none; color: #ff0000;border: 1px solid #222643;}
+	div.wrap span.ways a {font-size: 15px;}
+	div.wrap span.divider {color: #999;}
+	div.wrap i {font-family: Times, sans-serif; margin: 0 5px 0 0;}
+	div.wrap a:hover {color: #ff0000;}
+	div.wrap strong {margin: 0 15px 0 0; font-size: 16px; font-weight: bold; color: #000;}
+	 .date {font-size:13px; font-style:italic;}
+	
+
+/* Thanking */	
+#bottom{ position:absolute; bottom:10px;left:45%; font-family:Verdana;}	
+
+/* Общие стили*/
+
+.button {
+	color:#ffffff;
+	font:12px/28px Verdana, Geneva, sans-serif;
+	background-color:#444;
+	border:1px solid black;
+	height:28px;
+
+}

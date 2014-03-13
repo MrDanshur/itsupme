@@ -12,7 +12,8 @@ class Controller_News extends Controller
 	function action_index()
 	{
 		$data = $this->model->get_data();	
-		$this->view->generate('news_view.php', 'template_view.php', $data);		
-		$data = $this->model->javascript();	
+		$pag = $this->model->page_param();	
+		$this->view->generate('news_view.php', 'template_view.php', $data, $pag);		
+		//$data = $this->model->javascript();	
 	}
 }
