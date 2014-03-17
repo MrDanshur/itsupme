@@ -16,13 +16,14 @@ class Route
 			$routes = explode('/', $_SERVER['REQUEST_URI']);
 //var_dump($routes); 
 			// получаем имя контроллера
+			
 			if ( !empty($routes[1]) )
 				if (substr_count($routes[1], '.')==0)
 					{	
 						if (strpos($routes[1], '?')) $controller_name=substr($routes[1],0,strpos($routes[1], '?'));
 						else $controller_name = $routes[1];						
 					}
-			
+			//echo $controller_name;
 			// получаем имя экшена
 			if ( !empty($routes[2]) )
 				{

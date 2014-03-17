@@ -8,9 +8,30 @@ header('Content-Type: text/html; charset=utf-8');
 if( $_SERVER['HTTP_X_REQUESTED_WITH'] != 'XMLHttpRequest')
 	die( 'Ошибка запроса!' );
 else 
-	{ 			
+	{ 	
 //ИЗВЛЕЧЕНИЕ ТИПОВ ОПЕРАЦИЙ ПО id КАТЕГОРИЙ
-if(isset($_GET['id_stud']) && !empty($_GET['id_stud'])) 
+if(isset($_POST['author']) && !empty($_POST['author'])&&isset($_POST['text']) && !empty($_POST['text'])&&isset($_POST['id']) && !empty($_POST['id'])) 
+			{ 
+$author = mysql_real_escape_string($_POST['author']);		
+$text = mysql_real_escape_string($_POST['text']);
+$id = mysql_real_escape_string($_POST['id']);
+				$result = mysql_query("INSERT INTO `comments` (`article`,`text`,`author`) VALUES ('$id','$text','$author') ");
+					if ($result=='true')
+						{
+							$cat_add='{'.'"status": "OK"'.'}';
+							echo $cat_add;
+						}
+						else {
+							$cat_add='{'.'"status": "False"'.'}';
+							echo $cat_add;
+						}
+				unset($author);
+				unset($text);
+				unset($id);
+			}
+	
+//ИЗВЛЕЧЕНИЕ ТИПОВ ОПЕРАЦИЙ ПО id КАТЕГОРИЙ
+else if(isset($_GET['id_stud']) && !empty($_GET['id_stud'])) 
 			{ 
 $id_stud = $_GET['id_stud'];		
 				$result_work=mysql_query("SELECT * FROM students,s_doctype WHERE students.IdStudent='$id_stud' AND students.IdDocType=s_doctype.IdDocType");				

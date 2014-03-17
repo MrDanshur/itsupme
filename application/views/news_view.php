@@ -6,9 +6,9 @@
 
 while ($row = mysql_fetch_assoc($data))
 	{ 
-		echo '<h3><a href="edit.php?id='.$row["id"].'">'.$row["title"].'</a></h3>';
+		echo '<h3><a href="article?id='.$row["id"].'">'.$row["title"].'</a></h3>';
 		echo '<p class="date">'.$row["date"].'</p>';
-		echo '<p class="text">'.$row["text"].'</p>';
+		echo '<p class="text">'.$row["text"].'<a href="article?id='.$row["id"].'"> Подробнее...</a></p>';
 	}
 
 /**

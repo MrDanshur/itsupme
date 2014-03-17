@@ -43,7 +43,7 @@ return $this->select_all_news($this->start_row,$this->per_page);
 /* Функция выбора новостей согласно условию. Для постарничной навигации*/		
 	public function select_all_news($start_row,$per_page)
 		{		
-				return mysql_query("SELECT id,title, date,text FROM news ORDER BY id LIMIT $this->start_row,$this->per_page");
+				return mysql_query("SELECT id,title, date,left(text,100) as text FROM news ORDER BY id LIMIT $this->start_row,$this->per_page");
 		}
 
 
