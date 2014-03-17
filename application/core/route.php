@@ -19,7 +19,8 @@ class Route
 			if ( !empty($routes[1]) )
 				if (substr_count($routes[1], '.')==0)
 					{	
-						$controller_name = $routes[1];
+						if (strpos($routes[1], '?')) $controller_name=substr($routes[1],0,strpos($routes[1], '?'));
+						else $controller_name = $routes[1];						
 					}
 			
 			// получаем имя экшена
@@ -61,7 +62,7 @@ class Route
 				правильно было бы кинуть здесь исключение,
 				но для упрощения сразу сделаем редирект на страницу 404
 				*/
-				Route::ErrorPage404();
+			//	Route::ErrorPage404();
 			}
 			
 			// создаем контроллер
