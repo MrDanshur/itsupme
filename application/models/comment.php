@@ -23,13 +23,13 @@ $id = trim($_POST['id']);
 //Проверка email адреса
 
 if($author == ''){
-	$log .= "Пожалуйста, введите Ваше имя<br>";
+	$log .= "Please, input your name<br>";
 	$error = "yes";
 }
 
 //Проверка наличия введенного текста комментария
 if (empty($text)){
-	$log .= "Необходимо указать текст сообщения!<br>";
+	$log .= "require input the text<br>";
 	$error = "yes";
 }
 
@@ -65,20 +65,21 @@ date_default_timezone_set("Europe/Minsk");
 	$date = date("Y-m-d H:i:s");
 	$result2 = mysql_query("INSERT INTO `comments` (`article`,`text`,`author`,`date`) VALUES ('$id','$text','$author','$date') ");
 	//****
-	$ok="<div><strong>".$author."</strong><br>Добавлено: ".$date."<br>".$text."</div>";
+	$ok="<div><strong>".$author."</strong><br>Add: ".$date."<br>".$text."</div>";
 
 	//Помещаем результат в массив
 	$GLOBALS['_RESULT'] = array(
 	'error' => 'no',
 	'ok' => $ok
 	);
-
+echo $_RESULT['error'];
 }
 else {//если ошибки есть
- 	$log = "<div><strong><font color='red'> Ошибка! </font></strong><br>".$log."</div>";
+ 	$log = "<div><strong><font color='red'> Error! </font></strong><br>".$log."</div>";
 	//Отправляем результат в массив
 	$GLOBALS['_RESULT'] = array(
 	'error' => 'yes',      
 	'er_mess' => $log);
-}  
+	echo $_RESULT['er_mess'];
+}  	
 ?>

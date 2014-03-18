@@ -6,9 +6,11 @@
 
 while ($row = mysql_fetch_assoc($data))
 	{ 
+		echo '<div class="news_box">';
 		echo '<h3><a href="article?id='.$row["id"].'">'.$row["title"].'</a></h3>';
 		echo '<p class="date">'.$row["date"].'</p>';
 		echo '<p class="text">'.$row["text"].'<a href="article?id='.$row["id"].'"> Подробнее...</a></p>';
+		echo '</div>';
 	}
 
 /**
