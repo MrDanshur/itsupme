@@ -19,7 +19,18 @@ else if (window.ActiveXObject) {
 
 if (req) {
     req.onreadystatechange = function() {
-    	if (req.readyState == 4 && req.status == 200)  { alert(req.responseText); err.innerHTML="ok"; }        
+    	if (req.readyState == 4 && req.status == 200)  
+		{ 
+				err.innerHTML="ok"; 
+				var div = document.createElement('div');
+				div.style.border = '1px solid red';
+				var d = new Date();
+				div.innerHTML = "<p class='author'>Author: "+author+"</p><p class='date'>"+d.toLocaleString()+"</p><p class='text'>"+text+"</p>";
+				div.setAttribute('class', 'comment_box');		
+				document.getElementById("comment_block").appendChild(div);
+				/* Увеличиваем счётчик комментариев */
+				document.getElementById("count_com").innerHTML= parseInt(document.getElementById("count_com").innerHTML)+1;
+		}        
     };  
     req.open("POST", '../application/models/comment.php', true);
     req.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");

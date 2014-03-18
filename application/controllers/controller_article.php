@@ -12,7 +12,8 @@ class Controller_Article extends Controller
 	function action_index()
 	{
 		$data = $this->model->get_data();	
-		$this->view->generate('article_view.php', 'template_view.php', $data);		
+		$comments = $this->model->get_comments();	
+		$this->view->generate('article_view.php', 'template_view.php', $data, $comments);		
 		//$data = $this->model->javascript();	
 	}
 }

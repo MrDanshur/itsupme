@@ -61,6 +61,7 @@ $author = htmlspecialchars($author);
 
 //Если нет ошибок добавляем в базу  
 if($error=="no"){
+date_default_timezone_set("Europe/Minsk");
 	$date = date("Y-m-d H:i:s");
 	$result2 = mysql_query("INSERT INTO `comments` (`article`,`text`,`author`,`date`) VALUES ('$id','$text','$author','$date') ");
 	//****
