@@ -23,7 +23,7 @@ if (req) {
 		{ 				
 				if (req.responseText=='no')
 				{	
-					err.innerHTML="";
+					err.innerHTML="<font color='green'>Comment was added</font>";
 					var div = document.createElement('div');
 					div.style.border = '1px solid red';
 					var d = new Date();
@@ -39,7 +39,7 @@ if (req) {
     req.open("POST", '../application/models/comment.php', true);
     req.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
 	//alert(author);
-    req.send('id='+id+'id&author='+author+'&text='+text);
+    req.send('id='+id+'&author='+author+'&text='+text);
 } 
 else alert("Браузер не поддерживает AJAX");
 }

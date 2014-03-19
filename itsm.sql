@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Хост: 127.0.0.1
--- Время создания: Мар 18 2014 г., 00:59
+-- Время создания: Мар 20 2014 г., 01:37
 -- Версия сервера: 5.5.25
 -- Версия PHP: 5.3.13
 
@@ -26,6 +26,7 @@ SET time_zone = "+00:00";
 -- Структура таблицы `comments`
 --
 
+DROP TABLE IF EXISTS `comments`;
 CREATE TABLE IF NOT EXISTS `comments` (
   `id` int(5) NOT NULL AUTO_INCREMENT,
   `article` int(5) NOT NULL,
@@ -34,14 +35,7 @@ CREATE TABLE IF NOT EXISTS `comments` (
   `text` text NOT NULL,
   PRIMARY KEY (`id`),
   UNIQUE KEY `id` (`id`)
-) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=7 ;
-
---
--- Дамп данных таблицы `comments`
---
-
-INSERT INTO `comments` (`id`, `article`, `author`, `date`, `text`) VALUES
-(6, 31, 'Александр', '2014-03-18 00:58:38', 'Проверка комментариев прошла успешно?');
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=71 ;
 
 -- --------------------------------------------------------
 
@@ -49,21 +43,22 @@ INSERT INTO `comments` (`id`, `article`, `author`, `date`, `text`) VALUES
 -- Структура таблицы `news`
 --
 
+DROP TABLE IF EXISTS `news`;
 CREATE TABLE IF NOT EXISTS `news` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `title` varchar(255) NOT NULL,
   `date` date NOT NULL,
   `text` text NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=49 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=53 ;
 
 --
 -- Дамп данных таблицы `news`
 --
 
 INSERT INTO `news` (`id`, `title`, `date`, `text`) VALUES
-(27, 'Ttitle 1', '2013-10-01', 'Открыты вакансии PHP-программистов.\\r\\n\\r\\n Резюме присылать на job@itsupportme.by'),
-(28, 'Ttitle 2132', '2013-10-16', 'Публикации в сборнике материалов XI Международной научно-технической конференции студентов, магистрантов и аспирантов «Исследования и разработки в области машиностроения, энергетики и управления»\r\nПубликации в сборнике материалов XI Международной научно-технической конференции студентов, магистрантов и аспирантов «Исследования и разработки в области машиностроения, энергетики и управления»'),
+(27, 'Java type var', '2014-03-21', 'switch работает с такими примитивными типами данных как: byte, short, char, и int. Также с типами Enum,  классом String и несколькими специальными классами-оболочками примитивных типов: Character, Byte, Short, Integer.\n\nВыражение в круглых скобках после switch сравнивается со значениями, указанными после слова case, и, в случае совпадения, управление  передается соответствующему блоку кода. Если выражение не совпадает ни с одним вариантом case, то управление передается блоку default, который не является обязательным. После выполнения соответствующего блока, оператор break вызывает завершение выполнения оператора switch. Если break отсутствует, то управление передается  следующему блоку за только что выполненным.\n\nВ следующем примере,  для целочисленного значения, представляющего день недели, определяется его название в виде строки. Для значения 3, переменная dayString примет значение «Среда».'),
+(28, 'Title 132 up', '2013-10-17', 'Текст Текст Текст\nТекст Текст Текст &lt;br/&gt;\nТекст Текст Текст'),
 (29, 'Ttitle 3', '2013-10-03', '1)  Code should be easy to read and contains comments\\r\\n\\r\\n2)  You should use MySQL as database server\\r\\n\\r\\n3)  Templates and logic should be in separate files \\r\\n\\r\\n4)  All result files should be packed to .zip archive and include DB scheme as well'),
 (30, 'Ttitle 445', '2013-10-31', '&lt;b&gt;In list page you should implement list of all news with pagination (5 news per&lt;/b&gt;\r\n page). Pages should be in format: 1 2 [3] 4 5 N. In those example 3 means current page.'),
 (31, 'Ttitle 5', '2013-10-05', 'Что такое позднее статическое связывание или для чего нужена ссылка static?\\r\\nПозднее статическое связывание – возможность позволяющая вызывать ближайший к текущему объекту член (с определенным вызываемым именем) в цепочке наследования данного объекта.\\r\\n Звучит сложно, однако попробуем на примере. Используем заодно уже знакомые self и parent. Создадим цепочку 23наследований:'),
@@ -80,7 +75,11 @@ INSERT INTO `news` (`id`, `title`, `date`, `text`) VALUES
 (43, 'Title 23', '2013-10-23', 'many text information\r\nmany text information\r\n\r\nmany text information'),
 (44, 'Title 23', '2013-10-23', 'many text information\r\nmany text information\r\n\r\nmany text information'),
 (46, 'Title 1', '0000-00-00', 'many text information'),
-(48, 'Title 1', '0000-00-00', 'many text information');
+(48, 'Title 1', '0000-00-00', 'many text information'),
+(49, '', '2014-03-21', 'dhrfthrbhtr34546'),
+(50, 'dhrturtuyrtyi', '2014-03-21', 'dhrfthrbhtr'),
+(51, 'Новая статейка', '2014-03-20', 'Прекрасный текст'),
+(52, 'Прекрасный текстПрекрасный текст', '2013-12-05', 'Прекрасный текст\nПрекрасный текст\nПрекрасный текст');
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
