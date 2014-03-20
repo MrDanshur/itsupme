@@ -1,28 +1,13 @@
 <?php
 
 // подключаем файлы ядра
-require_once 'core/db.php';
-require_once 'core/model.php';
-require_once 'core/view.php';
-require_once 'core/controller.php';
-//Файл настроек
-require_once './config.php';
-//Локализация
-require_once './lang/ru.ini';
+require_once 'core/db.php'; //Подключение к БД
+require_once 'core/model.php'; //файл модели
+require_once 'core/view.php'; // файл вывода основного аблона
+require_once 'core/controller.php'; // подключение шаблона
 
-/*
-Здесь обычно подключаются дополнительные модули, реализующие различный функционал:
-	> аутентификацию
-	> кеширование
-	> работу с формами
-	> абстракции для доступа к данным
-	> ORM
-	> Unit тестирование
-	> Benchmarking
-	> Работу с изображениями
-	> Backup
-	> и др.
-*/
+require_once './config.php'; //Файл настроек
 
-require_once 'core/route.php';
-Route::start(); // запускаем маршрутизатора
+require_once './lang/en.ini'; //Локализация
+require_once 'core/route.php'; //файл для обработки запроса в браузере
+Route::start(); // запускаем маршрутизатор

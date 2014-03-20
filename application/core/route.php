@@ -11,7 +11,7 @@ class Route
 		{
 
 			// контроллер и действие по умолчанию
-			$controller_name = 'Main';
+			$controller_name = 'Contacts';
 			$action_name = 'index';			
 			$routes = explode('/', $_SERVER['REQUEST_URI']);
 //var_dump($routes); 
@@ -63,7 +63,7 @@ class Route
 				правильно было бы кинуть здесь исключение,
 				но для упрощения сразу сделаем редирект на страницу 404
 				*/
-			//	Route::ErrorPage404();
+				Route::ErrorPage404();
 			}
 			
 			// создаем контроллер
@@ -83,7 +83,7 @@ class Route
 		
 		}
 
-	function ErrorPage404()
+	static function ErrorPage404()
 		{
 			$host = 'http://'.$_SERVER['HTTP_HOST'].'/';
 			header('HTTP/1.1 404 Not Found');

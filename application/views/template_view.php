@@ -6,10 +6,7 @@
 		<meta name="keywords" content="" />
 		<title>Test Task for ItSupportMe</title> 
 		<link rel="stylesheet" type="text/css" href="/css/style.css" />
-		<script src="//code.jquery.com/jquery-1.9.1.js"></script>
-		<script src="//code.jquery.com/ui/1.10.4/jquery-ui.js"></script>
-		<script src="/js/func.js" type="text/javascript"></script>
-		<link rel="stylesheet" href="//code.jquery.com/ui/1.10.4/themes/smoothness/jquery-ui.css">
+
 	<!--	<script src="/js/jquery-1.6.2.js" type="text/javascript">
 	</script><script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.2.14/angular.min.js"></script> -->
 

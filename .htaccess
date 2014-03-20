@@ -1,5 +1,14 @@
-﻿AddDefaultCharset utf-8
+﻿# Задаём кодировку по умолчанию
+AddDefaultCharset utf-8
+
+#включаем mod_rewrite
 RewriteEngine On
+
+# условие, что все существующие папки не будут обрабатываться регулярным выражением
 RewriteCond %{REQUEST_FILENAME} !-f
+
+# условие, что все существующие файлы не будут обрабатываться регулярным выражением
 RewriteCond %{REQUEST_FILENAME} !-d
+
+# регулярное выражение при любой строке запроса будет открывать index.php, добавляя её в $_SERVER['REQUEST_URI']
 RewriteRule .* index.php [L]
