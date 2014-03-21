@@ -1,8 +1,7 @@
 <?php
-
+//Модель класса новости
 class Model_Article extends Model
 {
-
 	public $id;
 	
 	public function get_data()
@@ -12,7 +11,6 @@ class Model_Article extends Model
 		$this->id = (!empty($_GET['id']))? intval($_GET['id']): 0;
 
 		if($this->id!=0) 
-
 		/* Извлечение статьи */
 		return $this->select_article($this->id);
 	}
@@ -25,45 +23,20 @@ class Model_Article extends Model
 		$this->id = (!empty($_GET['id']))? intval($_GET['id']): 0;
 
 		if($this->id!=0) 
-
-		/* Извлечение статьи */
+		/* Извлечение комментариев */
 		return $this->select_comments($this->id);
 	}
 	
 		
-/* Функция выбора новости согласно условию. */		
+	/* Функция выбора новости согласно условию. */		
 	public function select_article($id)
 		{		
 			return mysql_query("SELECT id,title, date,text FROM news WHERE id=$id");
 		}
 
-		/* Функция выбор комментов по id статьи */		
+	/* Функция выбор комментов по id статьи */		
 	public function select_comments($id)
 		{		
 			return mysql_query("SELECT id,article,author,date,text FROM comments WHERE article=$id");
-		}
-
-	
-	public function javascript()
-	{
-	?><script type="text/javascript">
-	$('#stud_list option').bind('click', function (){
-//		$(this).css('display','none'); 	
-		var id_stud=$(this).attr('id');
-			//alert(id_stud);
-		$.getJSON("application/models/sql.php", {id_stud:id_stud}, function(data)
-			{		//alert(id_stud);
-				if(data.status=='OK')
-					{
-						info(data);
-
-					}
-			})					
-
-
-	} );
-		
-	</script><?php
-	}
-	
+		}	
 }

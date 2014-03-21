@@ -1,5 +1,5 @@
 <?php
-
+//Контроллер вывода списка новостей
 class Controller_News extends Controller
 {
 
@@ -12,8 +12,7 @@ class Controller_News extends Controller
 	function action_index()
 	{
 		$data = $this->model->get_data();	
-		$pag = $this->model->page_param();	
-		$this->view->generate('news_view.php', 'template_view.php', $data, $pag);		
-		//$data = $this->model->javascript();	
+		$adv = $this->model->page_param();	
+		$this->view->generate('news_view.php', 'template_view.php', $data, $adv);	
 	}
 }

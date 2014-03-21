@@ -1,9 +1,6 @@
 <h1><?php echo LIST_NEWS ?></h1>
 <!-- Для вывода статей-->
 <?php 
-
-
-
 while ($row = mysql_fetch_assoc($data))
 	{ 
 		echo '<div class="news_box">';

@@ -1,4 +1,6 @@
 <?
+/* Добавление комментария. Вызывается через ajax  */
+
 require("../../config.php"); 
 require("../core/db.php"); 
 DB::get()->handle();
@@ -10,7 +12,7 @@ header("Cache-Control: no-cache, must-revalidate");
 header("Pragma: no-cache");
 //****
 
-$log ="";
+$log =""; // Логгирование информационных собщений
 $error="no"; //флаг наличия ошибки
 
 
@@ -20,66 +22,73 @@ $text = trim($_POST['text']);
 $author = trim($_POST['author']);
 $id = trim($_POST['id']);
 
-//Проверка email адреса
+	//Проверка автора
+	if($author == '')
+		{
+			$log .= "Please, input your name<br>";
+			$error = "yes";
+		}
 
-if($author == ''){
-	$log .= "Please, input your name<br>";
-	$error = "yes";
-}
-
-//Проверка наличия введенного текста комментария
-if (empty($text)){
-	$log .= "require input the text<br>";
-	$error = "yes";
-}
+	//Проверка наличия введенного текста комментария
+	if (empty($text))
+		{
+			$log .= "require input the text<br>";
+			$error = "yes";
+		}
 
 
-//Проверка длины текста комментария
-if(strlen($text)>1000){
-	$log .= "Слишком длинный текст, в вашем распоряжении 1000 символов!<br>";
-	$error = "yes";
-}
+	//Проверка длины текста комментария
+	if(strlen($text)>1000)
+		{
+			$log .= "Слишком длинный текст, в вашем распоряжении 1000 символов!<br>";
+			$error = "yes";
+		}
 	 
-//Проверка на наличие длинных слов
-$mas = preg_split("/[\s]+/",$text);
-foreach($mas as $index => $val){
-	if (strlen($val)>40)  {
-		$log .= "Слишком длинные слова (более 40 символов) в тексте записи!<br>";
-		$error = "yes";
-		break;
-	}
-}
+	//Проверка на наличие длинных слов
+	$mas = preg_split("/[\s]+/",$text);
+	foreach($mas as $index => $val)
+		{
+			if (strlen($val)>40)  {
+				$log .= "Слишком длинные слова (более 40 символов) в тексте записи!<br>";
+				$error = "yes";
+				break;
+			}
+		}
 	
-//Экранирование и преобразование опасных символов
-if (!get_magic_quotes_gpc()){
-	$text = addslashes($text);
-	$author = addslashes($author);
-}
+	//Экранирование и преобразование опасных символов
+	if (!get_magic_quotes_gpc())
+		{
+			$text = addslashes($text);
+			$author = addslashes($author);
+		}
 
 $text = htmlspecialchars($text);
 $author = htmlspecialchars($author);
 
-//Если нет ошибок добавляем в базу  
-if($error=="no"){
-date_default_timezone_set("Europe/Minsk");
-	$date = date("Y-m-d H:i:s");
-	$result2 = mysql_query("INSERT INTO `comments` (`article`,`text`,`author`,`date`) VALUES ('$id','$text','$author','$date') ");
-	//****
-	$ok="<div><strong>".$author."</strong><br>Add: ".$date."<br>".$text."</div>";
+	//Если нет ошибок добавляем в базу  
+	if($error=="no")
+		{
+			date_default_timezone_set("Europe/Minsk");
+			$date = date("Y-m-d H:i:s");
+			$result2 = mysql_query("INSERT INTO `comments` (`article`,`text`,`author`,`date`) VALUES ('$id','$text','$author','$date') ");
+			//****
+			$ok="<div><strong>".$author."</strong><br>Add: ".$date."<br>".$text."</div>";
 
-	//Помещаем результат в массив
-	$GLOBALS['_RESULT'] = array(
-	'error' => 'no',
-	'ok' => $ok
-	);
-echo $_RESULT['error'];
-}
-else {//если ошибки есть
- 	$log = "<div><strong><font color='red'> Error! </font></strong><br>".$log."</div>";
-	//Отправляем результат в массив
-	$GLOBALS['_RESULT'] = array(
-	'error' => 'yes',      
-	'er_mess' => $log);
-	echo $_RESULT['er_mess'];
-}  	
+			//Помещаем результат в массив
+			$GLOBALS['_RESULT'] = array(
+			'error' => 'no',
+			'ok' => $ok
+			);
+			echo $_RESULT['error'];
+		}
+	else 
+		{	
+			//если ошибки есть
+			$log = "<div><strong><font color='red'> Error! </font></strong><br>".$log."</div>";
+			//Отправляем результат в массив
+			$GLOBALS['_RESULT'] = array(
+			'error' => 'yes',      
+			'er_mess' => $log);
+			echo $_RESULT['er_mess'];
+		}  	
 ?>

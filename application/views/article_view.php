@@ -1,9 +1,6 @@
 <script src="/js/comment.js" type="text/javascript"></script>
 <!--<script src="/js/JsHttpRequest.js" type="text/javascript"></script> -->
 <?php 
-
-
-
 $row = mysql_fetch_assoc($data);
 echo '<h1><a href="article?id='.$row["id"].'">'.$row["title"].'</a></h1>';
 		echo '<p class="date">'.$row["date"].'</p>';

@@ -10,7 +10,7 @@ class Controller {
 		$this->view = new View();
 	}
 	
-	// действие (action), вызываемое по умолчанию
+	// действие, вызываемое по умолчанию
 	function action_index()
 	{
 	}

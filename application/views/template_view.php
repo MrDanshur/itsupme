@@ -7,8 +7,6 @@
 		<title>Test Task for ItSupportMe</title> 
 		<link rel="stylesheet" type="text/css" href="/css/style.css" />
 
-	<!--	<script src="/js/jquery-1.6.2.js" type="text/javascript">
-	</script><script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.2.14/angular.min.js"></script> -->
 
 	</head>
 	<body>
@@ -53,7 +51,7 @@
 				<div id="page-bottom-content">
 					<h3><?php echo ABOUT_ME ?></h3>
 					<p>
-I want to be an excellent specialist in WEB development. <br/>I am perfectionist
+					I want to be an excellent specialist in WEB development. <br/>I am perfectionist
 					</p>
 				</div>
 				<br class="clearfix" />
